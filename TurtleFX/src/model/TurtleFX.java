@@ -4,6 +4,21 @@ import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 
 /**
+ * The turtle is by default:<br>
+ *  * using degrees<br>
+ *  * facing 0 degrees<br>
+ *  * pen up<br>
+ *  * at the position x=0 and y=0<br><br>
+ * The following definition is used for defining where the turtle should face at which degree(mathematical one):<br>
+ *  * 0 degrees = facing right<br>
+ *  * 90 degrees = facing up<br>
+ *  * 180 degrees = facing left<br>
+ *  * 270 degrees = facing down<br>
+ *  * 360 degrees = facing right<br>
+ *  * -90 degrees = facing down<br>
+ *  * -180 degrees = facing left<br>
+ *  * -270 degrees = facing up<br>
+ *  * -360 degrees = facing right<br>
  * 
  * @author Tuncer Catalkaya
  * @version 1.0
@@ -34,16 +49,12 @@ public class TurtleFX implements ITurtleFX {
 
 	@Override
 	public void penUp() {
-		if (penDown) {
-			penDown = !penDown;
-		}
+		penDown = false;
 	}
 	
 	@Override
 	public void penDown() {
-		if (!penDown) {
-			penDown = !penDown;
-		}
+		penDown = true;
 	}
 
 	@Override
@@ -51,13 +62,17 @@ public class TurtleFX implements ITurtleFX {
 		double angleTmp = this.angle;
 		if (!radians) {
 			angleTmp = Math.toRadians(angleTmp);
-		}	
-		gc.strokeLine(pos.getX(), pos.getY(), length * Math.sin(angleTmp), length * Math.cos(angleTmp));
+		}
+		
+		double newX = length * Math.sin(angleTmp);
+		double newY = length * Math.cos(angleTmp);
+		gc.strokeLine(pos.getX(), pos.getY(), newX, newY);
+		setPos(newX, newY);
 	}
 
 	@Override
 	public void turn(double angle) {
-		if (radians) {
+		if (!radians) {
 			angle = Math.toRadians(angle);
 		}
 		this.angle += angle;
@@ -75,7 +90,7 @@ public class TurtleFX implements ITurtleFX {
 
 	@Override
 	public void setAngle(double angle) {
-		if (radians) {
+		if (!radians) {
 			angle = Math.toRadians(angle);
 		}
 		this.angle = angle;

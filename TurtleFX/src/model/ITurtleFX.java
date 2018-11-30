@@ -3,22 +3,7 @@ package model;
 import javafx.geometry.Point2D;
 
 /**
- * Interface of the {@link model.TurtleFX} class.<br><br>
- * The turtle is by default:<br>
- *  * using degrees<br>
- *  * facing 0 degrees<br>
- *  * pen up<br>
- *  * at the position x=0 and y=0<br><br>
- * The following definition is used for defining where the turtle should face at which degree(mathematical one):<br>
- *  * 0 degrees = facing right<br>
- *  * 90 degrees = facing up<br>
- *  * 180 degrees = facing left<br>
- *  * 270 degrees = facing down<br>
- *  * 360 degrees = facing right<br>
- *  * -90 degrees = facing down<br>
- *  * -180 degrees = facing left<br>
- *  * -270 degrees = facing up<br>
- *  * -360 degrees = facing right<br>
+ * The interface holds all of the appointed methods of the {@link model.TurtleFX} class.
  * 
  * @author Tuncer Catalkaya
  * @version 1.0
