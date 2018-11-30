@@ -25,28 +25,60 @@ import javafx.scene.canvas.GraphicsContext;
  */
 public class TurtleFX implements ITurtleFX {
 
-	public static final boolean DEFAULT_PENUP = true;
+	/**
+	 * Default boolean value of the pen down attribute.
+	 */
 	public static final boolean DEFAULT_PENDOWN = false;
+	/**
+	 * Default boolean value of the radians attribute. 
+	 */
 	public static final boolean DEFAULT_RADIANS = false;
 	
+	/**
+	 * Default double value of the angle attribute.
+	 */
 	public static final double DEFAULT_ANGLE = 0d;
 	
+	/**
+	 * Default 2D vector of the position attribute.
+	 */
 	public static final Point2D DEFAULT_POS = new Point2D(0d, 0d);
 	
 	
+	/**
+	 * Attribute to keep track of the pen position (true = down, false = up).
+	 */
 	private boolean penDown = DEFAULT_PENDOWN;
+	/**
+	 * Attribute to keep track whether radians or degrees are used.
+	 */
 	private boolean radians = DEFAULT_RADIANS;
 	
+	/**
+	 * Attribute to keep track of the current position of the turtle.
+	 */
 	private Point2D pos = DEFAULT_POS;
 	
+	/**
+	 * Attribute to keep track of the current angle the turtle is facing.
+	 */
 	private double angle = DEFAULT_ANGLE;
 	
+	/**
+	 * Attribute to keep track on which canvas the turtle should work.
+	 */
 	private GraphicsContext gc;
 	
+	/**
+	 * Constructor to create a TurtleFX.
+	 * 
+	 * @param gc GraphicsContext of the canvas on which the turtle should work.
+	 */
 	public TurtleFX(GraphicsContext gc) {
 		this.gc = gc;
 	}
 
+	
 	@Override
 	public void penUp() {
 		penDown = false;
@@ -57,27 +89,45 @@ public class TurtleFX implements ITurtleFX {
 		penDown = true;
 	}
 
+	
 	@Override
 	public void forward(double length) {
+		// if the pen is up
+		// then don't draw (exit the method)
+		if(!penDown) {
+			return;
+		}
+		
 		double angleTmp = this.angle;
+		// if degrees should be used
+		// then convert the degrees to radians(in temp variable) and work with that
 		if (!radians) {
 			angleTmp = Math.toRadians(angleTmp);
 		}
 		
+		// draw the line
 		double newX = length * Math.sin(angleTmp);
 		double newY = length * Math.cos(angleTmp);
 		gc.strokeLine(pos.getX(), pos.getY(), newX, newY);
+		
+		// set the position to the new position
 		setPos(newX, newY);
 	}
 
 	@Override
 	public void turn(double angle) {
-		if (!radians) {
-			angle = Math.toRadians(angle);
-		}
 		this.angle += angle;
 	}
+	
+	@Override
+	public void reset() {
+		penDown = DEFAULT_PENDOWN;
+		radians = DEFAULT_RADIANS;
+		pos = DEFAULT_POS;
+		angle = DEFAULT_ANGLE;
+	}
 
+	
 	@Override
 	public void setPos(Point2D pos) {
 		this.pos = pos;
@@ -90,9 +140,6 @@ public class TurtleFX implements ITurtleFX {
 
 	@Override
 	public void setAngle(double angle) {
-		if (!radians) {
-			angle = Math.toRadians(angle);
-		}
 		this.angle = angle;
 	}
 
@@ -119,5 +166,10 @@ public class TurtleFX implements ITurtleFX {
 	@Override
 	public boolean isRadians() {
 		return radians;
+	}
+	
+	@Override
+	public GraphicsContext getGC() {
+		return gc;
 	}
 }

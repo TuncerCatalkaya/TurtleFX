@@ -1,6 +1,7 @@
 package model;
 
 import javafx.geometry.Point2D;
+import javafx.scene.canvas.GraphicsContext;
 
 /**
  * The interface holds all of the appointed methods of the {@link model.TurtleFX} class.
@@ -32,6 +33,10 @@ public interface ITurtleFX {
 	 * @param angle Angle the turtle should turn
 	 */
 	abstract void turn(double angle);
+	/**
+	 * Method to reset the turtle and set it to the deafault values.
+	 */
+	abstract void reset();
 	
 	/**
 	 * Method to set the current position of the turtle on the canvas.
@@ -85,4 +90,10 @@ public interface ITurtleFX {
 	 * @return true is radians and false is degrees
 	 */
 	abstract boolean isRadians();
+	/**
+	 * Method to get the canvas on which the turtle is working on.
+	 * 
+	 * @return The current active canvas of the turtle
+	 */
+	abstract GraphicsContext getGC();
 }
