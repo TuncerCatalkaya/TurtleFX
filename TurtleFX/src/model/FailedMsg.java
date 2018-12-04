@@ -16,5 +16,15 @@ public final class FailedMsg {
 	/**
 	 * Constants for the failed message of the pen position.
 	 */
-	public static final String PEN = "Pen position failed.";
+	public static final String PEN = "Pen position failed!";
+	
+	public static final String ANGLE_DEG = "Angle in degrees failed!";
+	
+	public static final String ANGLE_RAD = "Angle in radians failed!";
+	
+	public static final String RADIANS = "Radians boolean failed!";
+	
+	public static final String POSITION_X = "Position x failed!";
+	
+	public static final String POSITION_Y = "Position y failed!";
 }
