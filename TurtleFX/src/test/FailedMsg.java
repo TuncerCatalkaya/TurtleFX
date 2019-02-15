@@ -1,4 +1,4 @@
-package model;
+package test;
 
 /**
  * Constants class for the failed messages (for testing) see {@link test.TurtleFXTest}.
@@ -14,17 +14,32 @@ public final class FailedMsg {
 	private FailedMsg() {}
 	
 	/**
-	 * Constants for the failed message of the pen position.
+	 * Constant for the failed message of the pen position.
 	 */
 	public static final String PEN = "Pen position failed!";
 	
+	/**
+	 * Constant for the failed message of the angle in degrees.
+	 */
 	public static final String ANGLE_DEG = "Angle in degrees failed!";
 	
+	/**
+	 * Constant for the failed message of the angle in radians.
+	 */
 	public static final String ANGLE_RAD = "Angle in radians failed!";
 	
+	/**
+	 * Constant for the failed message of the usage of radians.
+	 */
 	public static final String RADIANS = "Radians boolean failed!";
 	
+	/**
+	 * Constant for the failed message of the x position.
+	 */
 	public static final String POSITION_X = "Position x failed!";
 	
+	/**
+	 * Constant for the failed message of the y position.
+	 */
 	public static final String POSITION_Y = "Position y failed!";
 }

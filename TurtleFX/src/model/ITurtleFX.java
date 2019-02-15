@@ -15,10 +15,12 @@ public interface ITurtleFX {
 	 * Method to set the pen up.
 	 */
 	abstract void penUp();
+	
 	/**
 	 * Method to set the pen down.
 	 */
 	abstract void penDown();
+	
 	
 	/**
 	 * Method to move the turtle by the given length.
@@ -26,6 +28,7 @@ public interface ITurtleFX {
 	 * @param length Length the turtle should move forward
 	 */
 	abstract void forward(double length);
+	
 	/**
 	 * Method to turn the turtle by the given angle.<br>
 	 * To use radians, look at the method "setRadians".
@@ -33,10 +36,12 @@ public interface ITurtleFX {
 	 * @param angle Angle the turtle should turn
 	 */
 	abstract void turn(double angle);
+	
 	/**
-	 * Method to reset the turtle and set it to the deafault values.
+	 * Method to reset the turtle and set it to the default values.
 	 */
 	abstract void reset();
+	
 	
 	/**
 	 * Method to set the current position of the turtle on the canvas.
@@ -44,6 +49,7 @@ public interface ITurtleFX {
 	 * @param pos Desired position of the turtle as Point2D
 	 */
 	abstract void setPos(Point2D pos);
+	
 	/**
 	 * Method to set the current position of the turtle on the canvas.
 	 * 
@@ -51,6 +57,7 @@ public interface ITurtleFX {
 	 * @param posY Desired y position of the turtle as double
 	 */
 	abstract void setPos(double posX, double posY);
+	
 	/**
 	 * Method to set the angle of the turtle.<br>
 	 * To use radians, look at the method "setRadians".
@@ -58,12 +65,14 @@ public interface ITurtleFX {
 	 * @param angle Angle the turtle should face
 	 */
 	abstract void setAngle(double angle);
+	
 	/**
-	 * Method to decide whether degrees ir radians should be used.<br>
+	 * Method to decide whether degrees or radians should be used.<br>
 	 * true = radians<br>
 	 * false = degrees (default)
 	 */
 	abstract void setRadians(boolean radians);
+	
 	
 	/**
 	 * Method to get whether the pen is down or not.
@@ -71,12 +80,14 @@ public interface ITurtleFX {
 	 * @return Whether the pen is down or not
 	 */
 	abstract boolean isPenDown();
+	
 	/**
 	 * Method to get the current position of the turtle.
 	 * 
 	 * @return Current position of the turtle as Point2D
 	 */
 	abstract Point2D getPos();
+	
 	/**
 	 * Method to get the angle the turtle is facing.<br>
 	 * To use radians, look at the method "setRadians".
@@ -84,12 +95,14 @@ public interface ITurtleFX {
 	 * @return Angle the turtle is facing
 	 */
 	abstract double getAngle();
+	
 	/**
 	 * Method to get whether radians or degress are used.
 	 * 
 	 * @return true is radians and false is degrees
 	 */
 	abstract boolean isRadians();
+	
 	/**
 	 * Method to get the canvas on which the turtle is working on.
 	 * 

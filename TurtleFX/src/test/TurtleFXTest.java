@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
-import model.FailedMsg;
 import model.TurtleFX;
 
 
@@ -27,9 +26,11 @@ import model.TurtleFX;
  */
 public class TurtleFXTest {
 	
+	public static final double CANVAS_SIZE = 1000d; 
+	
 	@Test
 	public void testReset() {
-		TurtleFX t = new TurtleFX(new Canvas(1000, 1000).getGraphicsContext2D());
+		TurtleFX t = new TurtleFX(new Canvas(CANVAS_SIZE, CANVAS_SIZE).getGraphicsContext2D());
 		
 		// check if the default values of the turtle are correct
 		Assertions.assertEquals(false, t.isPenDown(), "1: " + FailedMsg.PEN);
@@ -68,7 +69,7 @@ public class TurtleFXTest {
 	
 	@Test
 	public void testPen() {
-		TurtleFX t = new TurtleFX(new Canvas(1000, 1000).getGraphicsContext2D());
+		TurtleFX t = new TurtleFX(new Canvas(CANVAS_SIZE, CANVAS_SIZE).getGraphicsContext2D());
 		
 		// set the pen up while the pen is up
 		t.penUp();
@@ -89,14 +90,14 @@ public class TurtleFXTest {
 	
 	@Test
 	public void testAngle() {
-		TurtleFX t = new TurtleFX(new Canvas(1000, 1000).getGraphicsContext2D());
+		TurtleFX t = new TurtleFX(new Canvas(CANVAS_SIZE, CANVAS_SIZE).getGraphicsContext2D());
 		
 		
 	}
 	
 	@Test
 	public void testPos() {
-		TurtleFX t = new TurtleFX(new Canvas(1000, 1000).getGraphicsContext2D());
+		TurtleFX t = new TurtleFX(new Canvas(CANVAS_SIZE, CANVAS_SIZE).getGraphicsContext2D());
 		
 		t.setPos(0, 0);
 		Assertions.assertEquals(0d, t.getPos().getX(), "1: " + FailedMsg.POSITION_X);
@@ -104,7 +105,7 @@ public class TurtleFXTest {
 		
 		t.setPos(new Point2D(0, 0));
 		Assertions.assertEquals(0d, t.getPos().getX(), "3: " + FailedMsg.POSITION_X);
-		Assertions.assertEquals(0d, t.getPos().getY(), "54: " + FailedMsg.POSITION_Y);
+		Assertions.assertEquals(0d, t.getPos().getY(), "4: " + FailedMsg.POSITION_Y);
 		
 		t.setPos(32, 16);
 		Assertions.assertEquals(32d, t.getPos().getX(), "5: " + FailedMsg.POSITION_X);
@@ -133,7 +134,7 @@ public class TurtleFXTest {
 	
 	@Test
 	public void testDraw() {
-		TurtleFX t = new TurtleFX(new Canvas(1000, 1000).getGraphicsContext2D());
+		TurtleFX t = new TurtleFX(new Canvas(CANVAS_SIZE, CANVAS_SIZE).getGraphicsContext2D());
 		// TODO
 	}
 }

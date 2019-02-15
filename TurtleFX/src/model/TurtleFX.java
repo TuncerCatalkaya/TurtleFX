@@ -29,6 +29,7 @@ public class TurtleFX implements ITurtleFX {
 	 * Default boolean value of the pen down attribute.
 	 */
 	public static final boolean DEFAULT_PENDOWN = false;
+	
 	/**
 	 * Default boolean value of the radians attribute. 
 	 */
@@ -49,6 +50,7 @@ public class TurtleFX implements ITurtleFX {
 	 * Attribute to keep track of the pen position (true = down, false = up).
 	 */
 	private boolean penDown = DEFAULT_PENDOWN;
+	
 	/**
 	 * Attribute to keep track whether radians or degrees are used.
 	 */
@@ -110,7 +112,7 @@ public class TurtleFX implements ITurtleFX {
 		double newY = length * Math.cos(angleTmp);
 		gc.strokeLine(pos.getX(), pos.getY(), newX, newY);
 		
-		// set the position to the new position
+		// set the position to the new position(after drawing)
 		setPos(newX, newY);
 	}
 
