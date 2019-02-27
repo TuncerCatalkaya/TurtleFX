@@ -99,34 +99,42 @@ public class TurtleFXTest {
 	public void testPos() {
 		TurtleFX t = new TurtleFX(new Canvas(CANVAS_SIZE, CANVAS_SIZE).getGraphicsContext2D());
 		
+		// 0,0 position with setPos(double,double)
 		t.setPos(0, 0);
 		Assertions.assertEquals(0d, t.getPos().getX(), "1: " + FailedMsg.POSITION_X);
 		Assertions.assertEquals(0d, t.getPos().getY(), "2: " + FailedMsg.POSITION_Y);
 		
+		// 0,0 position with setPos(Point2D(double,double)
 		t.setPos(new Point2D(0, 0));
 		Assertions.assertEquals(0d, t.getPos().getX(), "3: " + FailedMsg.POSITION_X);
 		Assertions.assertEquals(0d, t.getPos().getY(), "4: " + FailedMsg.POSITION_Y);
 		
+		// positive integer position
 		t.setPos(32, 16);
 		Assertions.assertEquals(32d, t.getPos().getX(), "5: " + FailedMsg.POSITION_X);
 		Assertions.assertEquals(16d, t.getPos().getY(), "6: " + FailedMsg.POSITION_Y);
 		
+		// positive double and positive integer position
 		t.setPos(32.232, 16);
 		Assertions.assertEquals(32.232d, t.getPos().getX(), "7: " + FailedMsg.POSITION_X);
 		Assertions.assertEquals(16d, t.getPos().getY(), "8: " + FailedMsg.POSITION_Y);
 		
+		// positive integer and positive double position
 		t.setPos(32, 16.123);
 		Assertions.assertEquals(32d, t.getPos().getX(), "9: " + FailedMsg.POSITION_X);
 		Assertions.assertEquals(16.123d, t.getPos().getY(), "10: " + FailedMsg.POSITION_Y);
 		
+		// positive double and positive double position
 		t.setPos(32.14, 16.68);
 		Assertions.assertEquals(32.14d, t.getPos().getX(), "11: " + FailedMsg.POSITION_X);
 		Assertions.assertEquals(16.68d, t.getPos().getY(), "12: " + FailedMsg.POSITION_Y);
 		
+		// negative integer position
 		t.setPos(-1, -2323);
 		Assertions.assertEquals(-1d, t.getPos().getX(), "13: " + FailedMsg.POSITION_X);
 		Assertions.assertEquals(-2323d, t.getPos().getY(), "14: " + FailedMsg.POSITION_Y);
 		
+		// negative double and negative double position
 		t.setPos(-342.43, -548.3);
 		Assertions.assertEquals(-342.43d, t.getPos().getX(), "15: " + FailedMsg.POSITION_X);
 		Assertions.assertEquals(-548.3d, t.getPos().getY(), "16: " + FailedMsg.POSITION_Y);
