@@ -1,5 +1,7 @@
 package test;
 
+import java.text.NumberFormat;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -92,7 +94,30 @@ public class TurtleFXTest {
 	public void testAngle() {
 		TurtleFX t = new TurtleFX(new Canvas(CANVAS_SIZE, CANVAS_SIZE).getGraphicsContext2D());
 		
+		// check the initial state
+		Assertions.assertEquals(0, t.getAngle(), "1: " + FailedMsg.ANGLE_DEG);
+		Assertions.assertEquals(false, t.isRadians(), "2: " + FailedMsg.RADIANS);
 		
+		t.setRadians(true);
+		Assertions.assertEquals(true, t.isRadians(), "3: " + FailedMsg.RADIANS);
+		
+		t.setRadians(false);
+		Assertions.assertEquals(false, t.isRadians(), "4: " + FailedMsg.RADIANS);
+		
+		t.turn(Math.PI);
+		Assertions.assertEquals(Math.PI, t.getAngle(), "5: " + FailedMsg.ANGLE_DEG);
+		
+		t.turn(-Math.PI);
+		Assertions.assertEquals(0, t.getAngle(), "6: " + FailedMsg.ANGLE_DEG);
+		
+		t.turn(45d);
+		Assertions.assertEquals(45d, t.getAngle(), "7: " + FailedMsg.ANGLE_DEG);
+		
+		t.turn(45d);
+		Assertions.assertEquals(90d, t.getAngle(), "8: " + FailedMsg.ANGLE_DEG);
+		
+		t.turn(-11.33d);
+		Assertions.assertEquals(78.67d, t.getAngle(), "9: " + FailedMsg.ANGLE_DEG);
 	}
 	
 	@Test
